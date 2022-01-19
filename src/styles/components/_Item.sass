@@ -1,0 +1,52 @@
+table 
+  border-collapse: collapse
+  width: 100%
+
+td, th 
+  text-align: left
+  padding: 8px
+  height: 45px
+  overflow: hidden
+
+.shopping-item
+  box-sizing: border-box
+
+.price
+  font-weight: bold
+  margin-right: 10px
+  text-align: right
+
+.quantity
+  color: $color-text-secondary
+  font-size: 12px
+
+.name
+  max-width: 120px
+  // overflow-x: scroll
+  white-space: nowrap  
+
+.complete
+  background: #F8F4F4
+  text-decoration: line-through
+
+@media screen and (max-width: 320px)
+  .name
+    max-width: 105px
+
+/* Normal state */
+.custom-checkbox input
+  display: none
+
+.custom-checkbox .icon-checkMark 
+  width: 24px
+  height: 24px
+  background-color: $color-yellow-light
+  border-radius: 4px
+  border-radius: 50%
+
+/* Checked state */
+.custom-checkbox .icon-checkMark.checked 
+  background-color: $color-blue
+  background-image: url("../../assets/images/checkmark-white.svg");
+  background-repeat: no-repeat
+  background-position: center

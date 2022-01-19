@@ -1,0 +1,52 @@
+@import ./variables
+/* Typography */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap")
+
+html, body, #root, .App
+  height: 100%
+  margin: 0
+  padding: 0
+
+body
+  background-color: $color-white
+
+.App
+  color: $color-text-primary
+  font-family: "Noto Sans", sans-serif
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  text-align: center
+  margin: 0 auto
+  margin: $space-big
+  margin-top: 10px
+
+#welcome-page
+  p
+    text-align: justify
+    margin-left: $space-big
+    margin-right: $space-big
+  img 
+    width: 250px
+
+@media (min-width: 550px) 
+  .App 
+    max-width: 400px
+    margin: 0 auto
+    margin-top: $space-medium
+
+@media (max-width: 320px)
+  .App 
+    max-width: 300px
+    font-size: 13px
+    
+    #welcome-page
+      img 
+        width: 180px
+    .button-toggler
+        padding: 0 5px
+
+.toolbar
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+

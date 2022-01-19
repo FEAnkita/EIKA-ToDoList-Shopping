@@ -1,0 +1,46 @@
+// NPM Packages
+import { useState, useEffect } from "react";
+
+// Project files
+import "./styles/styles.sass";
+import Navigation from "./components/Navigation";
+import MainScreen from "./screens/MainScreen";
+import AddNewItem from "./components/AddNewItem";
+import WelcomeScreen from "./screens/WelcomeScreen";
+import SortControl from "./components/SortControl";
+
+export default function App() {
+  const [list, setList] = useState([]);
+  const STORAGE_KEY = "eika shopping list";
+
+  // loadData
+  useEffect(() => {
+    const shoppingItems = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    if (shoppingItems) {
+      setList(shoppingItems);
+    }
+  }, []);
+
+  // saveData
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+  }, [list]);
+
+  return (
+    <div className="App">
+      <Navigation />
+      <main>
+        {list.length === 0 ? (
+          <WelcomeScreen />
+        ) : (
+          <>
+            <h2>Your EIKA's shopping list is here</h2>
+            <MainScreen list={list} setList={setList} />
+          </>
+        )}
+        <br />
+      </main>
+      <AddNewItem list={list} setList={setList} />
+    </div>
+  );
+}
